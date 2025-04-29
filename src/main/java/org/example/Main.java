@@ -8,6 +8,7 @@ public class Main {
 
         bubbleSort(nums); // {1, 1, 2, 3, 4, 5}
         selectionSort(nums); // {1, 1, 2, 3, 4, 5}
+        insertionSort(nums);
 
         System.out.println(Arrays.toString(nums));
     }
@@ -38,6 +39,25 @@ public class Main {
             int temp = nums[i];
             nums[i] = nums[minIdx];
             nums[minIdx] = temp;
+        }
+    }
+    /*
+    3     15214
+    1     35214
+    13    5214
+    123   514
+    1123  54
+    11234 5
+     */
+    public static void insertionSort(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
+            int key = nums[i];
+            int j = i - 1;
+            while (j >= 0 && nums[j] > key) {
+                nums[j + 1] = nums[j];
+                j--;
+            }
+            nums[j + 1] = key;
         }
     }
 }
